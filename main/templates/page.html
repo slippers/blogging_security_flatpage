@@ -1,0 +1,12 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} {{ page.title }}  {% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+{{ page.html|safe }}
+{% endblock %}

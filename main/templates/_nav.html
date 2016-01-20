@@ -1,0 +1,22 @@
+{%- if current_user.is_authenticated -%}
+<p>Hello {{ current_user.email }}</p>
+{%- endif %}
+<ul>
+    <li><a href="{{ url_for('index') }}">Index</a></li>
+    <li><a href="{{ url_for('blogging.index') }}">Blog</a></li>
+    <li><a href="{{ url_for('blogging.feed') }}">Blog Feed</a></li>
+    <li><a href="{{ url_for('blogging.sitemap') }}">Blog Sitemap</a></li>
+    {% if current_user.has_role('admin') -%}
+    <li><a href="{{ url_for('admin') }}">Admin</a></li>
+    {% endif -%}
+    {% if current_user.has_role('admin') or current_user.has_role('editor') -%}
+    <li><a href="{{ url_for('admin_or_editor') }}">Admin or Editor</a></li>
+    {% endif -%}
+    {%- if current_user.is_authenticated -%}
+    <li><a href="{{ url_for('blogging.editor') }}">Blog Editor</a></li>
+    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+    <li><a href="{{ url_for('security.logout') }}">Log out</a></li>
+    {%- else -%}
+    <li><a href="{{ url_for('security.login') }}">Log in</a></li>
+    {%- endif -%}
+</ul>
