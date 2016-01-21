@@ -19,7 +19,7 @@ from security import configure_security
 import views
 
 # create the site navigation for bootstrap to use
-from bootstrap_nav import nav
+from site_nav import nav
 
 # blogging extention
 from blogging import blogging_engine, configure_blogging
