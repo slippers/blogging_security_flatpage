@@ -1,6 +1,8 @@
 import os
 
 class BaseConfig(object):
+    SITE_NAME = 'default site name'
+    
     # directory above configure 
     basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
@@ -43,11 +45,13 @@ class BaseConfig(object):
     PAGE_DIR = 'pages'
 
 class DevelopmentConfig(BaseConfig):
+    SITE_NAME = 'development'
     DEBUG = True    
     TESTING = True
     SQLALCHEMY_ECHO = False
 
 class TestingConfig(BaseConfig):
+    SITE_NAME = 'testing'
     DEBUG = False
     TESTING = True
 

@@ -1,9 +1,10 @@
-<DOCTYPE html>
-<html>
-<head> </head>
-<body>
-{% include "_nav.html" %}
-{% include "_messages.html" %}
-<p>{{ content }}</p>
-</body>
-</html>
+{% extends "bootstrap/base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block navbar %}
+{{nav.mynavbar.render()}}
+{% endblock %}
+
+{% block content %}
+{{ content }}
+{% endblock %}

@@ -6,6 +6,24 @@ from flask_flatpages import FlatPages
 
 flatpages = FlatPages(app)
 
+# errors
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error.html', title='Page Not Found'), 404
+
+@app.errorhandler(410)
+def page_not_found(e):
+    return render_template('error.html', title='Page deleted'), 403
+
+@app.errorhandler(403)
+def page_not_found(e):
+    return render_template('error.html', title='Forbidden'), 404
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('error.html', title='Server error'), 500
+
+
 # Views
 @app.route('/')
 def home():

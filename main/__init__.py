@@ -10,12 +10,16 @@ configure_app(app)
 
 # Create database connection object
 db = SQLAlchemy(app) #flask-sqlalchemy
-bs = Bootstrap(app) #flask-bootstrap
+Bootstrap(app) #flask-bootstrap
 
 #import the flask-security feature
 from security import configure_security
 
+# setup all the routes to the views
 import views
+
+# create the site navigation for bootstrap to use
+from bootstrap_nav import nav
 
 # blogging extention
 from blogging import blogging_engine, configure_blogging
