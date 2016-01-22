@@ -27,33 +27,33 @@ def page_not_found(e):
 # Views
 @app.route('/')
 def home():
-    return render_template('index.html', content='home')
+    return render_template('index.html',title='Home', content='home')
 
 @app.route('/index')
 @login_required
 def index():
-    return render_template('index.html',content='index')
+    return render_template('index.html',title='Index', content='index')
 
 @app.route('/profile')
 @login_required
 def profile():
-    return render_template('index.html', content='profile')
+    return render_template('index.html',title='Profile', content='profile')
 
 @app.route('/admin')
 @login_required
 @roles_accepted('admin')
 def admin():
-    return render_template('index.html', content='admin')
+    return render_template('index.html',title='Administration', content='admin')
 
 @app.route('/admin_or_editor')
 @roles_accepted('admin','editor')
 @login_required
 def admin_or_editor():
-    return render_template('index.html', content='admin_or_editor')
+    return render_template('index.html',title='Restricted', content='admin_or_editor')
 
 @app.route('/pages/<name>')
 def page(name):
     """ render static pages """
     path = '{}/{}'.format(app.config.get('PAGE_DIR'), name)
     page = flatpages.get_or_404(path)
-    return render_template('page.html', page=page)
+    return render_template('page.html',title=name, page=page)

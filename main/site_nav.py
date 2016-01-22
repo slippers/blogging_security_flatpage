@@ -9,6 +9,7 @@ nav = Nav()
 def mynavbar():
     return Navbar(app.config.get('SITE_NAME'), 
             View('Home', 'home'),
+            View('Blog', 'blogging.index'),
             View('About', 'page', name='about'),
             Subgroup(
                 'Apps',
