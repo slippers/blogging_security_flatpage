@@ -34,6 +34,6 @@ def secnavbar():
                 View('Log in', 'security.login')
                 )
 
-    return Navbar(app.config.get('SITE_NAME'), *(tuple(secnav)))
+    return Navbar(app.config.get('SITE_NAME'), *secnav)
 
 nav.init_app(app)

@@ -11,18 +11,18 @@ class BaseConfig(object):
     TESTING = False
 
     SQLALCHEMY_ECHO = False
-
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
     #SQLALCHEMY_DATABASE_URI
-
     SQLALCHEMY_ENGINE = 'sqlite://'
-
     SQLALCHEMY_BINDS = {
             'blog': 'sqlite:///' + os.path.join(basedir,'database', 'blog.db'),
             'security': 'sqlite:///' + os.path.join(basedir,'database', 'security.db')
             }
 
+
+    # flask-bootstrap
+    BOOTSTRAP_USE_MINIFIED = False
+    BOOTSTRAP_SERVE_LOCAL = False
 
     # flask-blogging
     SECRET_KEY = "test a secret"  # for WTF-forms and login
@@ -35,12 +35,10 @@ class BaseConfig(object):
     SECURITY_PASSWORD_SALT = "salty"
 
     # flask-flatpages
-
     FLATPAGES_EXTENSION = '.md'
     #FLATPAGES_HTML_RENDERER
     FLATPAGES_MARKDOWN_EXTENSIONS = ['fenced_code']
     FLATPAGES_AUTO_RELOAD = True
-    
     FLATPAGES_ROOT = "content"
     PAGE_DIR = 'pages'
 

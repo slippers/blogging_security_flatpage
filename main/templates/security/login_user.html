@@ -1,11 +1,8 @@
-{% extends "bootstrap/base.html" %}
+{% extends "base.html" %}
 {% block title %}{{ title }}{% endblock %}
 
-{% block navbar %}
-{{nav.secnavbar.render()}}
-{% endblock %}
-
 {% block content %}
+
 <div class="container">
     {% from "security/_macros.html" import render_field_with_errors, render_field %}
     {% include "security/_messages.html" %}
@@ -20,7 +17,6 @@
     </form>
     {% include "security/_menu.html" %}
 </div>
-{{ content }}
 {% endblock %}
 
 

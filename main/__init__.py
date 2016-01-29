@@ -10,6 +10,8 @@ configure_app(app)
 
 # Create database connection object
 db = SQLAlchemy(app) #flask-sqlalchemy
+
+# flask-bootstrap
 Bootstrap(app) #flask-bootstrap
 
 #import the flask-security feature
@@ -30,5 +32,3 @@ from blogging import blogging_engine, configure_blogging
 def before_first_request():
     configure_security()
     configure_blogging()
-
-

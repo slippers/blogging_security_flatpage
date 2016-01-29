@@ -1,5 +1,5 @@
 from main import app
-from flask import render_template, redirect
+from flask import render_template, redirect, flash
 from security import login_required, roles_accepted
 from flask_flatpages import FlatPages
 
@@ -13,11 +13,11 @@ def page_not_found(e):
 
 @app.errorhandler(410)
 def page_not_found(e):
-    return render_template('error.html', title='Page deleted'), 403
+    return render_template('error.html', title='Page deleted'), 410
 
 @app.errorhandler(403)
 def page_not_found(e):
-    return render_template('error.html', title='Forbidden'), 404
+    return render_template('error.html', title='Forbidden'), 403
 
 @app.errorhandler(500)
 def page_not_found(e):
@@ -56,4 +56,5 @@ def page(name):
     """ render static pages """
     path = '{}/{}'.format(app.config.get('PAGE_DIR'), name)
     page = flatpages.get_or_404(path)
-    return render_template('page.html',title=name, page=page)
+    flash(path)
+    return render_template('flatpage.html',title=name, page=page)
