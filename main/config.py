@@ -28,7 +28,6 @@ class BaseConfig(object):
     SECRET_KEY = "test a secret"  # for WTF-forms and login
     BLOGGING_URL_PREFIX = "/blog"
     BLOGGING_DISQUS_SITENAME = None 
-    BLOGGING_SITEURL = "http://localhost:8000"
     
     # flask-security
     SECURITY_PASSWORD_HASH = "sha512_crypt"

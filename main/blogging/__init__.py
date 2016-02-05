@@ -1,5 +1,5 @@
 from main import app, db
-from main.security import security, user_datastore
+from ..security import security, user_datastore
 from flask.ext.blogging import SQLAStorage, BloggingEngine
 
 # configure the bloggin storeage for the blog.db

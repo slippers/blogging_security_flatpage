@@ -1,6 +1,6 @@
 from main import app
 from flask import render_template, redirect, flash
-from security import login_required, roles_accepted
+from .security import login_required, roles_accepted
 from flask_flatpages import FlatPages
 
 

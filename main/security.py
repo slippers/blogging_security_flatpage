@@ -49,6 +49,7 @@ def configure_security():
     # Create the Roles "admin" and "end-user" -- unless they already exist
     user_datastore.find_or_create_role(name='admin', description='Administrator')
     user_datastore.find_or_create_role(name='end-user', description='End user')
+    user_datastore.find_or_create_role(name='blogger', description='Blogger')
 
 
     # Create two Users for testing purposes -- unless they already exists.
@@ -65,7 +66,9 @@ def configure_security():
     #(This will have no effect if the
     # Users already have these Roles.) Again, commit any database changes.
     user_datastore.add_role_to_user('someone@example.com', 'end-user')
+    user_datastore.add_role_to_user('someone@example.com', 'blogger')
     user_datastore.add_role_to_user('admin@example.com', 'admin')
-
+    user_datastore.add_role_to_user('admin@example.com', 'blogger')
+    
     db.session.commit()
 
