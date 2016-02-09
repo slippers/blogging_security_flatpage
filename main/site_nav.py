@@ -25,10 +25,17 @@ def secnavbar():
     
     if current_user.is_authenticated:
         secnav.extend([
-                View('Log out', 'security.logout'),
                 View('Blog Editor', 'blogging.editor'),
                 View('Profile', 'profile'),
                 ])
+
+        if current_user.has_role('admin'):
+            secnav.append(
+                    View('Admin','admin.index')
+                    )
+
+        secnav.append(View('Log out', 'security.logout'))
+ 
     else:
         secnav.append( 
                 View('Log in', 'security.login')

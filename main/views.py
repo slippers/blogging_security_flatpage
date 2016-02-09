@@ -37,7 +37,7 @@ def index():
 @app.route('/profile')
 @login_required
 def profile():
-    return render_template('index.html',title='Profile', content='profile')
+    return render_template('profile.html',title='Profile', content='profile')
 
 @app.route('/admin')
 @login_required

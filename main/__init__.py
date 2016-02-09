@@ -26,9 +26,13 @@ from .site_nav import nav
 # blogging extention
 from .blogging import blogging_engine, configure_blogging
 
+from .admin import admin
 
 # execute before first request is processed
 @app.before_first_request
 def before_first_request():
     configure_security()
     configure_blogging()
+
+
+
