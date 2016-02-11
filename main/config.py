@@ -16,7 +16,8 @@ class BaseConfig(object):
     SQLALCHEMY_ENGINE = 'sqlite://'
     SQLALCHEMY_BINDS = {
             'blog': 'sqlite:///' + os.path.join(basedir,'database', 'blog.db'),
-            'security': 'sqlite:///' + os.path.join(basedir,'database', 'security.db')
+            'security': 'sqlite:///' + os.path.join(basedir,'database', 'security.db'),
+            'gallery':  'sqlite:///' + os.path.join(basedir,'database', 'gallery.db'),
             }
 
 

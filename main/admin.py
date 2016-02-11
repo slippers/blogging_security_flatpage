@@ -1,13 +1,53 @@
 #https://github.com/sasaporta/flask-security-admin-example/blob/master/main.py
 
-
+import os
+import os.path as op
+from flask import url_for
 from main import app, db
 from flask.ext.login import current_user
-from flask_admin import Admin, helpers as admin_helpers
+from flask_admin import Admin, helpers as admin_helpers, form as admin_form
 from flask_security.utils import encrypt_password
 from .security import security, RoleUsers, Role, User
 from flask_admin.contrib.sqla import ModelView
 from wtforms.fields import PasswordField
+from jinja2 import Markup
+from .gallery import Gallery, Tag
+
+
+# Create directory for file fields to use
+file_path = op.join(op.dirname(__file__), 'static')
+try:
+    os.mkdir(file_path)
+except OSError:
+    pass
+
+class GalleryAdmin(ModelView):
+
+    column_auto_select_related = True
+    column_list = ('description', 'path', 'tags')
+    def is_accessible(self):
+        return current_user.has_role('admin')
+
+    def _list_thumbnail(view, context, model, name):
+        if not model.path:
+            return ''
+
+        return Markup('<img src="%s">' % url_for('static',
+            filename=admin_form.thumbgen_filename(model.path)))
+
+    column_formatters = {
+            'path': _list_thumbnail
+            }
+
+    # Alternative way to contribute field is to override it completely.
+    # In this case, Flask-Admin won't attempt to merge various parameters for the field.
+    form_extra_fields = {
+            'path': admin_form.ImageUploadField('Image',
+                base_path=file_path,
+                thumbnail_size=(100, 100, True))
+            }
+
+
 
 class UserAdmin(ModelView):
 
@@ -65,6 +105,8 @@ class RoleAdmin(ModelView):
 admin = Admin(app, 'Administration', template_mode='bootstrap3')
 admin.add_view(UserAdmin(User, db.session))
 admin.add_view(RoleAdmin(Role, db.session))
+
+admin.add_view(GalleryAdmin(Gallery, db.session))
 
 # define a context processor for merging flask-admin's template context into the
 # flask-security views.

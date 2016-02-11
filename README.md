@@ -8,6 +8,7 @@ combine these flask packages with a single bootstrap default layout.
 * flask-nav
 * flask-flatpage
 * flask-bootstrap
+* flask-admin
 
 # notes
 
