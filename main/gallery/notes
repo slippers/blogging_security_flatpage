@@ -1,0 +1,12 @@
+
+Create a route for the uploads base url so that url_for works
+
+
+
+show full path in list and edit
+
+specify url along with file path.
+
+create some config values
+* the upload root location
+* 

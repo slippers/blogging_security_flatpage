@@ -1,17 +1,17 @@
 from main import app, db
 
-# Define models
 
+# Define models
 class Gallery(db.Model):
     __bind_key__ = 'gallery'
     __tablename__ = 'gallery'
     id = db.Column(db.Integer(), primary_key=True)
     description = db.Column(db.String(255))
     path = db.Column(db.String(255))
-    tag_id = db.Column(db.Integer(), db.ForeignKey('tags.id'))
-    tags = db.relationship('Tag', 
-            secondary='gallery_tags',
-            backref=db.backref('tags', lazy='dynamic'))
+#    tag_id = db.Column(db.Integer(), db.ForeignKey('gallery_tag_rel.id'))
+    tags = db.relationship('GalleryTag', 
+            secondary='gallery_tag_rel',
+            backref=db.backref('gallery', lazy='dynamic'))
 
     # __str__ is required by Flask-Admin, so we can have human-readable 
     # If we were using Python 2.7, this would be __unicode__ instead.
@@ -25,11 +25,11 @@ class Gallery(db.Model):
     def __hash__(self):
         return hash(self.path)
 
-class Tag(db.Model):
+class GalleryTag(db.Model):
     __bind_key__ = 'gallery'
-    __tablename__ = 'tags'
+    __tablename__ = 'gallery_tag'
     id = db.Column(db.Integer(), primary_key=True)
-    text = db.Column(db.Unicode(64))
+    text = db.Column(db.Unicode(64), unique=True)
     
     def __unicode__(self):
         return self.text
@@ -40,12 +40,12 @@ class Tag(db.Model):
         return self.text
 
 
-class GalleryTags(db.Model):
+class GalleryTagRel(db.Model):
     __bind_key__ = 'gallery'
-    __tablename__ = 'gallery_tags'
+    __tablename__ = 'gallery_tag_rel'
     id = db.Column(db.Integer(), primary_key=True)
     gallery_id = db.Column(db.Integer(), db.ForeignKey('gallery.id'))
-    tag_id = db.Column(db.Integer(), db.ForeignKey('tags.id'))
+    tag_id = db.Column(db.Integer(), db.ForeignKey('gallery_tag.id'))
 
 
 

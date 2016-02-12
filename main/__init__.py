@@ -11,7 +11,6 @@ configure_app(app)
 # Create database connection object
 db = SQLAlchemy(app) #flask-sqlalchemy
 
-from .gallery import Gallery, Tag
 
 # flask-bootstrap
 Bootstrap(app) #flask-bootstrap
