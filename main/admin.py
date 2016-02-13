@@ -1,5 +1,5 @@
 from main import app
-from flask_admin import Admin
+from flask_admin import Admin, helpers as admin_helpers
 from .gallery import config_gallery_admin
 from .security import security, config_security_admin
 

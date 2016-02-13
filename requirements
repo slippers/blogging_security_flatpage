@@ -13,10 +13,12 @@ Flask-WTF==0.12
 Jinja2==2.8
 Markdown==2.6.5
 MarkupSafe==0.23
+Pillow==3.1.1
 PyYAML==3.11
 SQLAlchemy==1.0.11
 WTForms==2.1
 Werkzeug==0.11.3
+argparse==1.2.1
 blinker==1.4
 dominate==2.1.16
 flask-nav==0.5
@@ -24,3 +26,4 @@ itsdangerous==0.24
 passlib==1.6.5
 virtualenv==14.0.5
 visitor==0.1.2
+wsgiref==0.1.2
