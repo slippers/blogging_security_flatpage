@@ -1,7 +1,7 @@
 #https://github.com/sasaporta/flask-security-admin-example/blob/master/main.py
 from . import RoleUsers, Role, User
 
-from flask.ext.login import current_user
+from flask_login import current_user
 from flask_admin import Admin, helpers as admin_helpers, form as admin_form
 from flask_security.utils import encrypt_password
 from flask_admin.contrib.sqla import ModelView

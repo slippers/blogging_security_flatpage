@@ -1,7 +1,7 @@
 from main import app, db
 from .models import User, Role, RoleUsers
 from .security_admin import UserAdmin, RoleAdmin
-from flask.ext.security import Security, SQLAlchemyUserDatastore, \
+from flask_security import Security, SQLAlchemyUserDatastore, \
     login_required, roles_accepted
 from flask_security.utils import encrypt_password
 

@@ -1,6 +1,6 @@
 from main import app, db
 from ..security import security, user_datastore
-from flask.ext.blogging import SQLAStorage, BloggingEngine
+from flask_blogging import SQLAStorage, BloggingEngine
 
 # configure the bloggin storeage for the blog.db
 # using multiple database bound to sqlalchemy

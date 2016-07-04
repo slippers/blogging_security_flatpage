@@ -5,7 +5,7 @@ from jinja2 import Markup
 from ..gallery import Gallery, GalleryTag
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import form as admin_form
-from flask.ext.login import current_user
+from flask_login import current_user
 
 
 # Create directory for file fields to use

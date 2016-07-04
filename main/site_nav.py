@@ -1,5 +1,5 @@
 from main import app
-from flask.ext.login import current_user
+from flask_login import current_user
 from flask_nav import Nav
 from flask_nav.elements import Navbar, View, Subgroup
 
