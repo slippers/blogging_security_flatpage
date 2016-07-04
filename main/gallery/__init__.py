@@ -8,3 +8,4 @@ def  config_gallery_admin(admin):
     admin.add_view(GalleryTagAdmin(db.session))
 
 
+db.create_all()
