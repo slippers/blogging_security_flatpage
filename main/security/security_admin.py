@@ -60,6 +60,9 @@ class UserAdmin(ModelView):
 # Customized Role model for SQL-Admin
 class RoleAdmin(ModelView):
 
+    # hide showing users of the role on change form.
+    form_excluded_columns = ('users',)
+
     # Prevent administration of Roles unless the currently logged-in user has the "admin" role
     def is_accessible(self):
         return current_user.has_role('admin')

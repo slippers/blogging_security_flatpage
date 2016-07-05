@@ -1,4 +1,5 @@
 import os
+from flask import Flask
 
 class BaseConfig(object):
     SITE_NAME = 'default site name'
@@ -53,19 +54,33 @@ class TestingConfig(BaseConfig):
     DEBUG = False
     TESTING = True
 
+class ProductionConfig(BaseConfig):
+    SITE_NAME = 'production'
+
 
 config = {
         "development": "main.config.DevelopmentConfig",
         "testing": "main.config.TestingConfig",
-        "default": "main.config.DevelopmentConfig"
+        "production": "main.config.ProductionConfig"
         }
 
-def configure_app(app):
-    config_name = os.getenv('FLAKS_CONFIGURATION', 'default')
-    print(config[config_name])
-    app.config.from_object(config[config_name])
-    app.config.from_pyfile('config.cfg', silent=True)
+def configure_app():
+    
+    app = Flask(__name__, instance_relative_config=True)
 
-    if config_name == 'default':
+    print("instance path:",app.instance_path)
+
+    config_name = os.getenv('FLAKS_CONFIGURATION', 'development')
+
+    print(config_name, ":",  config[config_name])
+
+    app.config.from_object(config[config_name])
+    
+    app.config.from_pyfile(config_name + ".cfg", silent=True)
+
+    # print out config
+    if app.config['DEBUG']: 
         for key,value in app.config.items():
             print(key,value)
+
+    return app

@@ -13,14 +13,17 @@ combine these flask packages with a single bootstrap default layout.
 
 ### configuration
 
-using a configuration scheme where a baseconfig class gets inherited.
-test, development and default are the current environments.
-this is controlled by environment variables FLAKS_CONFIGURATION.
+main/config.py contains the configuration logic.
+looks for env var FLAKS_CONFIGURATION with name of environment
+testing, development, production are the current environments.
+if a config file name environment.cfg it will load last
 
 ### security
 
-the security module creates some default roles and users if they don't already exits.
-accounts are stored in sparate db file.
+* flask-security handels the users and roles and authentication
+* the security module creates some default roles and users if they don't already exits.
+* accounts are stored in sparate db file.
+* the admin pages have a user and roles list/view/edit form
 
 ### database
 
