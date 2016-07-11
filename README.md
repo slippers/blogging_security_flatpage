@@ -13,7 +13,7 @@ combine these flask packages with a single bootstrap default layout.
 
 ### configuration
 
-main/config.py contains the configuration logic.
+src/config.py contains the configuration logic.
 looks for env var FLAKS_CONFIGURATION with name of environment
 testing, development, production are the current environments.
 if a config file name environment.cfg it will load last
