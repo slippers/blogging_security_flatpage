@@ -4,13 +4,10 @@ from flask_bootstrap import Bootstrap
 from .config import configure_app
 
 # Create app
-
-
 app = configure_app()
 
 # Create database connection object
 db = SQLAlchemy(app) #flask-sqlalchemy
-
 
 # flask-bootstrap
 Bootstrap(app) #flask-bootstrap

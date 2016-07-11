@@ -1,4 +1,4 @@
-from main import app, db
+from src import app, db
 from ..security import security, user_datastore
 from flask_blogging import SQLAStorage, BloggingEngine
 

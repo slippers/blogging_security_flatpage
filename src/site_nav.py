@@ -1,4 +1,4 @@
-from main import app
+from src import app
 from flask_login import current_user
 from flask_nav import Nav
 from flask_nav.elements import Navbar, View, Subgroup

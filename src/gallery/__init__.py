@@ -1,4 +1,4 @@
-from main import app, db
+from src import app, db
 from .models import Gallery, GalleryTag, GalleryTagRel
 from .gallery_admin import GalleryAdmin, GalleryTagAdmin
 

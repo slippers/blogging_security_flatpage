@@ -1,4 +1,4 @@
-from main import db
+from src import db
 from flask_security import UserMixin, RoleMixin
 
 # Define models

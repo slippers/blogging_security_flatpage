@@ -1,4 +1,4 @@
-from main import app, db
+from src import app, db
 
 
 # Define models

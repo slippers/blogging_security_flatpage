@@ -59,9 +59,9 @@ class ProductionConfig(BaseConfig):
 
 
 config = {
-        "development": "main.config.DevelopmentConfig",
-        "testing": "main.config.TestingConfig",
-        "production": "main.config.ProductionConfig"
+        "development": "src.config.DevelopmentConfig",
+        "testing": "src.config.TestingConfig",
+        "production": "src.config.ProductionConfig"
         }
 
 def configure_app():

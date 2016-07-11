@@ -1,4 +1,4 @@
-from main import app, db
+from src import app, db
 from .models import User, Role, RoleUsers
 from .security_admin import UserAdmin, RoleAdmin
 from flask_security import Security, SQLAlchemyUserDatastore, \
