@@ -11,6 +11,10 @@ combine these flask packages with a single bootstrap default layout.
 * flask-bootstrap
 * flask-admin
 
+### setup
+sudo apt-get install libjpeg8-dev python-dev libyaml-dev
+
+
 ### configuration
 
 src/config.py contains the configuration logic.
