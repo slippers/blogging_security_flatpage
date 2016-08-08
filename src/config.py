@@ -22,10 +22,10 @@ class BaseConfig(object):
     gallery = 'sqlite:///' + os.path.join(basedir, 'database', 'gallery.db')
 
     SQLALCHEMY_BINDS = {
-            'blog': blog,
-            'security': security,
-            'gallery':  gallery,
-            }
+        'blog': blog,
+        'security': security,
+        'gallery':  gallery,
+    }
 
     # flask-bootstrap
     BOOTSTRAP_USE_MINIFIED = False
@@ -35,6 +35,7 @@ class BaseConfig(object):
     SECRET_KEY = "test a secret"  # for WTF-forms and login
     BLOGGING_URL_PREFIX = "/blog"
     BLOGGING_DISQUS_SITENAME = None
+    BLOGGING_FLASK_BOOTSTRAP = True
 
     # flask-security
     SECURITY_PASSWORD_HASH = "sha512_crypt"
